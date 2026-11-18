@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/*
+  Flymedia design tokens
+  - brand: deep harbour teal — trust, calm, "home"
+  - sun: warm amber — featured / promoted placements only
+  - mist: neutrals with a slight green-teal bias
+  - status colours are semantic and never reused as decoration
+*/
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eef7f5;
+  --color-brand-100: #d5ece6;
+  --color-brand-200: #acd8cd;
+  --color-brand-300: #78bfae;
+  --color-brand-400: #3d9e88;
+  --color-brand-500: #158470;
+  --color-brand-600: #0c6f5f;
+  --color-brand-700: #0c5f52;
+  --color-brand-800: #0b4a41;
+  --color-brand-900: #08342e;
+  --color-brand-950: #04211d;
+
+  --color-sun-50: #fff8eb;
+  --color-sun-100: #fdecc8;
+  --color-sun-200: #fbd88e;
+  --color-sun-400: #f4b23f;
+  --color-sun-500: #e9971a;
+  --color-sun-600: #c97a0b;
+  --color-sun-700: #9d5b0b;
+
+  --color-mist-50: #f6f8f7;
+  --color-mist-100: #edf1ef;
+  --color-mist-200: #dde4e1;
+  --color-mist-300: #c4cfcb;
+  --color-mist-400: #8e9b96;
+  --color-mist-500: #68756f;
+  --color-mist-600: #4c5853;
+  --color-mist-700: #37423e;
+  --color-mist-800: #232c29;
+  --color-mist-900: #151c1a;
+  --color-mist-950: #0c1110;
+
+  --radius-card: 0.875rem;
+  --shadow-card: 0 1px 2px rgb(12 17 16 / 0.04), 0 1px 1px rgb(12 17 16 / 0.03);
+  --shadow-lift: 0 10px 30px -12px rgb(12 17 16 / 0.18), 0 2px 6px rgb(12 17 16 / 0.05);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-mist-800;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-mist-950;
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 h-11 text-sm font-semibold transition-colors duration-150 whitespace-nowrap disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-sm { @apply h-9 px-3 text-[13px]; }
+  .btn-primary { @apply bg-brand-700 text-white hover:bg-brand-800; }
+  .btn-secondary { @apply bg-white text-mist-900 ring-1 ring-inset ring-mist-200 hover:bg-mist-50 hover:ring-mist-300; }
+  .btn-ghost { @apply text-mist-700 hover:bg-mist-100 hover:text-mist-900; }
+  .btn-whatsapp { @apply bg-[#1f9d55] text-white hover:bg-[#1a8749]; }
+  .btn-sun { @apply bg-sun-400 text-mist-950 hover:bg-sun-500; }
+
+  .field-label { @apply mb-1.5 block text-[13px] font-medium text-mist-700; }
+  .field {
+    @apply block h-11 w-full rounded-lg border border-mist-200 bg-white px-3 text-sm text-mist-900 placeholder:text-mist-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-3 focus:ring-brand-100;
+  }
+  textarea.field { @apply h-auto py-2.5 leading-relaxed; }
+  select.field {
+    @apply appearance-none pr-9;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2368756f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+  }
+  .checkbox {
+    @apply size-4 rounded border-mist-300 accent-brand-700;
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] border border-mist-200 bg-white;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.08em] text-brand-700;
+  }
+  .prose-flymedia p { @apply mb-4 leading-7 text-mist-700; }
+  .prose-flymedia h2 { @apply mt-10 mb-3 text-xl font-bold; }
+  .prose-flymedia h3 { @apply mt-6 mb-2 text-base font-bold; }
+  .prose-flymedia ul { @apply mb-4 list-disc space-y-1.5 pl-5 text-mist-700; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
