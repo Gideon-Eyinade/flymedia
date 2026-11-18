@@ -1,5 +1,0 @@
-User-Agent: *
-Disallow: /saved
-Disallow: /login
-Disallow: /signup
-Disallow: /forgot-password

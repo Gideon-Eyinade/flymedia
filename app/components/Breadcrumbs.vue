@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-vue-next'
 
 const props = defineProps<{ items: { label: string; to?: string | object }[] }>()
 
-const config = useRequestURL()
+const abs = useSiteUrl()
 useHead({
   script: [
     {
@@ -15,7 +15,7 @@ useHead({
           '@type': 'ListItem',
           position: i + 1,
           name: item.label,
-          ...(typeof item.to === 'string' ? { item: `${config.origin}${item.to}` } : {}),
+          ...(typeof item.to === 'string' ? { item: abs(item.to) } : {}),
         })),
       }),
     },

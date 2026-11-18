@@ -190,7 +190,7 @@ const benefits = [
         </div>
       </div>
 
-      <div v-else class="grid gap-8 lg:grid-cols-[260px_1fr]">
+      <div v-else class="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
         <!-- Stepper -->
         <nav aria-label="Listing steps">
           <ol class="no-scrollbar flex gap-2 overflow-x-auto lg:sticky lg:top-20 lg:flex-col lg:gap-0">

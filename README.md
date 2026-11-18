@@ -1,75 +1,40 @@
-# Nuxt Minimal Starter
+# Flymedia
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Apartment discovery and rental marketplace for Nigeria. Built with Nuxt 4, Vue 3, TypeScript and Tailwind CSS v4.
 
-## Setup
+**Current stage: static website.** All data is local sample data in `app/data/`. There is no backend or API yet.
 
-Make sure to install dependencies:
+## Run it
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+npm run dev        # http://localhost:3000
+npm run generate   # static site in .output/public
 ```
 
-## Development Server
+## What works now (in the browser)
 
-Start the development server on `http://localhost:3000`:
+- Search with filters for location (state → city → area), type, price, bedrooms, bathrooms, furnishing, servicing, new builds, verified homes and amenities. Filters live in the URL, so every search is shareable.
+- Sorting, grid/list view, pagination, active-filter chips and a mobile filter drawer.
+- Listing pages with gallery and lightbox, itemised charges and move-in total, availability panel, and agent contact (call / WhatsApp links).
+- Availability freshness rules (`app/utils/availability.ts`): after 7 days without confirmation a listing shows "Awaiting confirmation"; after 7 more it is hidden. Rented listings are never shown as available. Intervals live in `app/data/settings.ts`.
+- Saved homes, kept in `localStorage`.
+- Agent directory with filters and agent profiles.
+- Multi-step "List a property" form, apartment request, contact, login and sign-up forms, all validated.
 
-```bash
-# npm
-npm run dev
+## Preview-only (not connected yet)
 
-# pnpm
-pnpm dev
+Form submissions (enquiries, inspections, listing submission, requests, contact, login and sign-up) validate input and show a confirmation, but nothing is sent or stored. Each of these forms shows a notice saying so. Agent phone numbers use the placeholder `0800 000 xxxx` range.
 
-# yarn
-yarn dev
+## Structure
 
-# bun
-bun run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+app/
+  data/          sample listings, agents, locations, catalogue, settings
+  utils/         formatting, availability and move-in cost logic
+  composables/   search/filter engine, saved homes, toasts
+  components/    UI (ListingCard, SearchFilters, ListingGallery, ...)
+  pages/         routes
+server/routes/sitemap.xml.ts
+public/images/   photography (Unsplash licence)
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

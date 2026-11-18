@@ -12,7 +12,6 @@ useSeoMeta({
     'Discover apartments that are genuinely available for rent in Lagos, Abuja, Port Harcourt and Ibadan. See the full move-in cost, compare options and contact verified agents.',
   ogTitle: 'Flymedia · Find available apartments for rent in Nigeria',
   ogDescription: 'Verified listings, availability confirmed weekly and full move-in costs upfront.',
-  ogImage: '/images/house-10.jpg',
   ogType: 'website',
   twitterCard: 'summary_large_image',
 })

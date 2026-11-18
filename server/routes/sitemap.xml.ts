@@ -4,7 +4,7 @@ import { effectiveStatus } from '~~/app/utils/availability'
 
 // Static sitemap generated from the sample data. Prerendered at build time.
 export default defineEventHandler((event) => {
-  const origin = getRequestURL(event).origin
+  const origin = String(useRuntimeConfig(event).public.siteUrl || getRequestURL(event).origin).replace(/\/+$/, '')
   const staticPaths = ['/', '/apartments', '/locations', '/property-types', '/agents', '/list-property', '/request', '/about', '/contact', '/faq', '/privacy', '/terms']
   const listingPaths = listings
     .filter((l) => ['available', 'awaiting_confirmation', 'inspection_ongoing'].includes(effectiveStatus(l)))

@@ -29,21 +29,33 @@ const fullLocation = [listing.neighbourhood, area.name, area.cityName, area.stat
 const title = `${listing.title} for rent in ${listing.neighbourhood}, ${area.name}`
 const priceText = `${formatNaira(listing.rent)} per ${periodLabel(listing.period)}`
 
+const abs = useSiteUrl()
+const pageUrl = abs(`/apartments/${listing.slug}`)
+const coverImage = abs(`${listing.images[0]}.jpg`)
+const roomsText = `${listing.bedrooms} bed · ${listing.bathrooms} bath${listing.sizeSqm ? ` · ${listing.sizeSqm} m²` : ''}`
+
 useSeoMeta({
   title,
   description: `${listing.title} in ${fullLocation}. ${priceText}. ${listing.bedrooms} bedrooms, ${listing.bathrooms} bathrooms. ${meta.label}, last confirmed ${daysAgoText(listing.confirmedDaysAgo)}.`,
-  ogTitle: `${title} · ${priceText}`,
-  ogDescription: listing.description[0],
-  ogImage: `${listing.images[0]}.jpg`,
+  // WhatsApp/Facebook/X previews: title + short description + large image
+  ogTitle: `${listing.title} in ${listing.neighbourhood ?? area.name} · ${priceText}`,
+  ogDescription: `${roomsText} · ${fullLocation}. ${meta.label}${listing.verified ? ' · Verified by Flymedia' : ''}. ${listing.description[0]}`.slice(0, 300),
+  ogUrl: pageUrl,
+  ogImage: coverImage,
+  ogImageSecureUrl: coverImage.startsWith('https') ? coverImage : undefined,
+  ogImageWidth: 1200,
+  ogImageHeight: 800,
+  ogImageType: 'image/jpeg',
+  ogImageAlt: `${listing.title} in ${fullLocation}`,
   ogType: 'website',
   twitterCard: 'summary_large_image',
+  robots: isOpen ? undefined : 'noindex, follow',
 })
 
-const url = useRequestURL()
 useHead({
   // leave room for the fixed mobile action bar
   bodyAttrs: { class: 'max-lg:pb-[72px]' },
-  link: [{ rel: 'canonical', href: `${url.origin}/apartments/${listing.slug}` }],
+  link: [{ rel: 'canonical', href: pageUrl }],
   script: [
     {
       type: 'application/ld+json',
@@ -51,8 +63,9 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'RealEstateListing',
         name: title,
-        url: `${url.origin}/apartments/${listing.slug}`,
-        image: listing.images.map((i) => `${url.origin}${i}.jpg`),
+        url: pageUrl,
+        image: listing.images.map((i) => abs(`${i}.jpg`)),
+        datePosted: new Date(Date.now() - listing.postedDaysAgo * 864e5).toISOString().slice(0, 10),
         description: listing.description.join(' '),
         offers: {
           '@type': 'Offer',
