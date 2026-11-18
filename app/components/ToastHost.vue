@@ -18,7 +18,7 @@ const { toasts, dismiss } = useToast()
         class="pointer-events-auto flex w-full max-w-md items-start gap-3 rounded-xl bg-mist-950 px-4 py-3 text-sm text-white shadow-xl"
         role="status"
       >
-        <component :is="t.tone === 'error' ? Info : CircleCheck" class="mt-0.5 size-4 shrink-0" :class="t.tone === 'error' ? 'text-rose-300' : 'text-brand-300'" />
+        <component :is="t.tone === 'error' ? Info : CircleCheck" class="mt-0.5 size-4 shrink-0" :class="t.tone === 'error' ? 'text-rose-300' : 'text-emerald-400'" />
         <p class="flex-1 leading-5">{{ t.message }}</p>
         <button type="button" class="text-mist-400 hover:text-white" aria-label="Dismiss" @click="dismiss(t.id)">
           <X class="size-4" />

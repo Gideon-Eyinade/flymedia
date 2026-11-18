@@ -19,7 +19,7 @@ export const agents: Agent[] = [
     reviewCount: 64,
     responseTime: 'Usually replies within 1 hour',
     rentedCount: 212,
-    monogramColor: '#0c5f52',
+    monogramColor: '#35363a',
     reviews: [
       { author: 'Adaeze O.', rating: 5, date: 'October 2026', body: 'The flat matched the photos exactly and the fees were the same as on the listing. No surprises at payment.' },
       { author: 'Kunle A.', rating: 5, date: 'September 2026', body: 'Inspection was arranged for the next morning. Very professional team.' },

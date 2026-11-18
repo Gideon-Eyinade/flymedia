@@ -41,7 +41,7 @@ const location = computed(() => [props.listing.neighbourhood, area.value?.name, 
       <div class="absolute left-3 top-3 flex flex-wrap gap-1.5">
         <span
           v-if="showFeatured && listing.featured"
-          class="rounded-full bg-sun-400 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-mist-950"
+          class="rounded-full bg-brand-600 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white"
         >Featured</span>
         <VerifiedBadge v-if="listing.verified" tone="solid" />
       </div>

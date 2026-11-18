@@ -54,14 +54,14 @@ const steps = [
 <template>
   <div>
     <!-- Hero -->
-    <section class="relative isolate overflow-hidden bg-brand-950">
+    <section class="relative isolate overflow-hidden bg-mist-950">
       <img
         src="/images/house-10.jpg"
         alt="Modern apartment building with balconies and a pool"
         class="absolute inset-0 -z-10 size-full object-cover"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(4_33_29/0.88)_0%,rgb(4_33_29/0.62)_55%,rgb(4_33_29/0.25)_100%)]" />
+      <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(13_13_15/0.9)_0%,rgb(13_13_15/0.65)_55%,rgb(13_13_15/0.25)_100%)]" />
       <div class="container-page pb-12 pt-14 sm:pb-16 sm:pt-20 lg:pb-20 lg:pt-24">
         <div class="max-w-2xl">
           <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white ring-1 ring-inset ring-white/20">
@@ -106,7 +106,7 @@ const steps = [
           <p class="text-sm leading-5"><strong class="block font-semibold text-mist-950">Every fee shown upfront</strong><span class="text-mist-600">Agency, legal, caution and service charge.</span></p>
         </div>
         <div class="flex items-center gap-3">
-          <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-sun-50 text-sun-700"><BadgeCheck class="size-5" /></span>
+          <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-mist-100 text-mist-900"><BadgeCheck class="size-5" /></span>
           <p class="text-sm leading-5"><strong class="block font-semibold text-mist-950">Verified agents and homes</strong><span class="text-mist-600">Checked by the Flymedia team.</span></p>
         </div>
       </div>
@@ -177,14 +177,14 @@ const steps = [
         >
           <img src="/images/living-14.jpg" alt="" class="absolute inset-0 -z-10 size-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 -z-10 bg-mist-950/55" />
-          <span class="mb-2 w-fit rounded-full bg-sun-400 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-mist-950">Serviced living</span>
+          <span class="mb-2 w-fit rounded-full bg-brand-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">Serviced living</span>
           <h3 class="max-w-sm text-2xl font-extrabold text-white">24-hour power, managed for you</h3>
           <p class="mt-1 max-w-sm text-sm text-white/80">Serviced apartments in Ikoyi, VI and Lekki with the service charge itemised.</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-white">Explore serviced apartments <ArrowRight class="size-4" /></span>
         </NuxtLink>
         <NuxtLink
           :to="searchLink({ max: '2500000' })"
-          class="group relative isolate flex min-h-56 flex-col justify-end overflow-hidden rounded-[var(--radius-card)] bg-brand-800 p-6 sm:p-8"
+          class="group relative isolate flex min-h-56 flex-col justify-end overflow-hidden rounded-[var(--radius-card)] bg-mist-900 p-6 sm:p-8"
         >
           <img src="/images/living-11.jpg" alt="" class="absolute inset-y-0 right-0 -z-10 h-full w-1/2 object-cover opacity-90 [mask-image:linear-gradient(to_right,transparent,black_45%)]" loading="lazy" />
           <span class="mb-2 w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">Under ₦2.5M a year</span>
@@ -279,7 +279,7 @@ const steps = [
     <section class="container-page py-14 sm:py-16">
       <div class="grid overflow-hidden rounded-2xl bg-mist-950 lg:grid-cols-2">
         <div class="p-8 sm:p-12">
-          <p class="eyebrow text-brand-300">For agents and landlords</p>
+          <p class="eyebrow text-brand-400">For agents and landlords</p>
           <h2 class="mt-3 text-3xl font-extrabold text-white">List your property where serious tenants are looking</h2>
           <p class="mt-3 max-w-md text-[15px] leading-7 text-mist-300">
             Publish apartments in minutes, confirm availability with one click, and manage enquiries and inspection
@@ -287,11 +287,11 @@ const steps = [
           </p>
           <ul class="mt-6 space-y-2.5 text-sm text-mist-200">
             <li v-for="item in ['Free to list your first properties', 'Enquiries straight to your WhatsApp', 'Get a verified badge on your profile', 'See views, saves and enquiries for every listing']" :key="item" class="flex items-center gap-2">
-              <Check class="size-4 text-brand-300" /> {{ item }}
+              <Check class="size-4 text-brand-400" /> {{ item }}
             </li>
           </ul>
           <div class="mt-8 flex flex-wrap gap-3">
-            <NuxtLink to="/list-property" class="btn btn-sun">List a property</NuxtLink>
+            <NuxtLink to="/list-property" class="btn btn-primary">List a property</NuxtLink>
             <NuxtLink to="/signup?role=agent" class="btn bg-white/10 text-white ring-1 ring-inset ring-white/20 hover:bg-white/15">Create an agent account</NuxtLink>
           </div>
         </div>

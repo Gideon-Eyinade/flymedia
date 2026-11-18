@@ -3,15 +3,18 @@ withDefaults(defineProps<{ inverted?: boolean }>(), { inverted: false })
 </script>
 
 <template>
-  <span class="inline-flex items-center gap-2">
-    <svg viewBox="0 0 32 32" class="size-8 shrink-0" aria-hidden="true">
-      <rect width="32" height="32" rx="8" :fill="inverted ? '#ffffff' : '#0c5f52'" />
-      <path d="M7.5 15.6 16 8.8l8.5 6.8V24h-5.8v-5.2h-5.4V24H7.5z" :fill="inverted ? '#0c5f52' : '#ffffff'" />
-      <circle cx="24" cy="8.6" r="2.6" fill="#f4b23f" />
-    </svg>
+  <span class="inline-flex items-center gap-2.5">
+    <img
+      src="/logo.png"
+      alt=""
+      width="40"
+      height="40"
+      class="size-10 shrink-0 rounded-full"
+      :class="inverted && 'ring-1 ring-white/15'"
+    />
     <span
-      class="font-display text-[1.35rem] font-extrabold leading-none tracking-[-0.03em]"
+      class="font-display text-[1.3rem] font-extrabold uppercase leading-none tracking-[0.02em]"
       :class="inverted ? 'text-white' : 'text-mist-950'"
-    >flymedia</span>
+    >Fly<span class="text-brand-600">me</span>dia</span>
   </span>
 </template>

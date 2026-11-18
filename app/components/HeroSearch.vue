@@ -22,7 +22,7 @@ function submit() {
 
 <template>
   <form
-    class="rounded-2xl bg-white p-3 shadow-[0_24px_60px_-20px_rgb(4_33_29/0.45)] ring-1 ring-black/5 sm:p-4"
+    class="rounded-2xl bg-white p-3 shadow-[0_24px_60px_-20px_rgb(13_13_15/0.45)] ring-1 ring-black/5 sm:p-4"
     role="search"
     aria-label="Search apartments"
     @submit.prevent="submit"

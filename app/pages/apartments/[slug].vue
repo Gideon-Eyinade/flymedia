@@ -167,7 +167,7 @@ function scrollToEnquiry() {
             <span v-if="listing.verified" class="inline-flex items-center gap-1 rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-800 ring-1 ring-inset ring-brand-200">
               <BadgeCheck class="size-3.5" /> Flymedia verified home
             </span>
-            <span v-if="listing.featured" class="rounded-full bg-sun-100 px-2.5 py-1 text-xs font-semibold text-sun-700">Featured</span>
+            <span v-if="listing.featured" class="rounded-full bg-mist-900 px-2.5 py-1 text-xs font-semibold text-white">Featured</span>
             <span class="text-xs text-mist-500">Ref {{ listing.id }}</span>
           </div>
           <h1 class="mt-3 text-2xl font-extrabold sm:text-3xl">{{ listing.title }} in {{ listing.neighbourhood }}</h1>

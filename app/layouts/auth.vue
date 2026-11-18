@@ -9,7 +9,7 @@
     </div>
     <div class="relative hidden lg:block">
       <img src="/images/living-14.jpg" alt="" class="absolute inset-0 size-full object-cover" />
-      <div class="absolute inset-0 bg-brand-950/45" />
+      <div class="absolute inset-0 bg-mist-950/50" />
       <div class="absolute inset-x-10 bottom-10 max-w-md text-white">
         <p class="font-display text-2xl font-extrabold leading-snug">“The flat matched the photos exactly and the fees were the same as on the listing.”</p>
         <p class="mt-3 text-sm text-white/80">Adaeze O., moved to Lekki Phase 1</p>
